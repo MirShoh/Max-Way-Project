@@ -1,0 +1,26 @@
+{% load static %}
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="http://127.0.0.1:8000/">
+            <img src="{% static 'dashboard/images/icon/logo.png' %}" alt="Cool Admin"/>
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                {% url 'admin_page' as admin_page %}
+                {% url 'category_page' as category_page %}
+                {% url 'product_page' as product_page %}
+                <li class="{% if request.get_full_path == admin_page %}active{% endif %}">
+                    <a href="{% url 'admin_page' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li class="{% if request.get_full_path == category_page %}active{% endif %}"><a
+                        href="{% url 'category_page' %}"><i class="fas fa-chart-bar"></i>Kategoriyalar</a></li>
+                <li class="{% if request.get_full_path == product_page %}active{% endif %}"><a
+                        href="{% url 'product_page' %}"><i class="fas fa-chart-bar"></i>Mahsulotlar</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->
